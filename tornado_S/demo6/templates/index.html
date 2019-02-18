@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+
+{% block header %}
+    <h1>{{ header_text }}</h1>
+{% end %}
+
+{% block body %}
+    <div id="hello">
+        <p>Welcome to Burt's Books!</p>
+        <p>...</p>
+    </div>
+{% end %}
+
+{% block footer %}
+{% set mailLink = '<a href="mailto:contact@burtsbooks.com">Contact Us</a>' %}
+<!--{% autoescape None %}-->
+<!--{{ mailLink }}-->
+{% raw mailLink %}
+<hr>
+    <p>
+        For more information about our selection, hours or events, please email us at
+        <a href="mailto:contact@burtsbooks.com">contact@burtsbooks.com</a>.
+    </p>
+
+    <p class="small">
+        Follow us on Facebook at
+        {% raw linkify("https://fb.me/burtsbooks", extra_params='ref=website') %}.
+    </p>
+
+
+{% end %}
