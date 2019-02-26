@@ -16,8 +16,8 @@ import traceback
 import json as _json
 
 from logger import logger
-from utils import current_log_tag
-from func_log import func_time_logger
+from mioji.common.utils import current_log_tag
+from mioji.common.func_log import func_time_logger
 
 from mioji.util.ESlogger import HttpLogger
 
@@ -113,7 +113,7 @@ class MechanizeCrawler(object):
                 httpLogger.data = _json.dumps(json, ensure_ascii=False)
 
         req_func = self.req_bind.get(method.lower())
-        httpLogger.cookie = str(req_func.im_self.cookies._cookies)
+        httpLogger.cookie = str(req_func.__self__.cookies._cookies)
         httpLogger.source = self.source
         httpLogger.headers = str(new_kw.get('headers', ""))
         try:
@@ -268,7 +268,7 @@ class MechanizeCrawler(object):
 
 
 def getuid():
-    return uuid.uuid1().get_hex()
+    return uuid.uuid1().hex
 
 
 def resp_content_lenght(resp):

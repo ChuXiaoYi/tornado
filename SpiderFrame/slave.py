@@ -88,9 +88,7 @@ class WebHandler(tornado.web.RequestHandler):
                 task.redis_key = each
                 task.other_info['redis_key'] = each
                 # logger.info('s[{0}] id[{1}]new verify task:{2}'.format(task.source, task.new_task_id, task))
-                result.append(task)
-
-        return result
+                yield task
 
 
 
