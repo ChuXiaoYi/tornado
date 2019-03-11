@@ -7,7 +7,7 @@
 # @Software: PyCharm
 import json
 import types
-from logger import logger
+from mioji.common.logger import logger
 from mioji.common.utils import current_log_tag
 
 # 需要增加翻页信息的数据库插入方法中，当前为 guest_info 所在位置

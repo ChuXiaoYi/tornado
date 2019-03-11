@@ -16,9 +16,9 @@ from lxml import html as HTML
 from collections import defaultdict
 
 import requests
-from logger import logger
 
 from mioji.common import parser_except, store_utils
+from mioji.common.logger import logger
 from mioji.common.utils import current_log_tag
 from mioji.common.func_log import func_time_logger
 

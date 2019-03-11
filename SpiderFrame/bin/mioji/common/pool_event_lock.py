@@ -10,11 +10,11 @@ import random
 import functools
 import traceback
 
-from logger import logger
 from gevent.event import Event
 from greenlet import getcurrent
 
 from mioji.common.pool import pool
+from mioji.common.logger import logger
 
 def block_async(pool, func, params):
     """

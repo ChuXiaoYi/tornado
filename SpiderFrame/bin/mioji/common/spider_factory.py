@@ -51,6 +51,15 @@ class SpiderFactory(object):
         print(f'spiders: {self.spider_dict}')
         print('=======spider init complete======')
 
+    def get_spider(self, source):
+        """
+        获取spider
+        :param source:
+        :return:
+        """
+        spider = self.spider_dict.get(source, {})
+        return spider.get('spider_class')
+
 def init_spider(module_name):
     """
     :param module_name: like  spider.booking.hotel_list_spider

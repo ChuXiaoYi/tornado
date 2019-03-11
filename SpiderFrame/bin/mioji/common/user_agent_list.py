@@ -3,7 +3,7 @@
 import random
 from user_agents import parse
 from fake_useragent import UserAgent
-from logger import logger
+from mioji.common.logger import logger
 
 
 def random_useragent():

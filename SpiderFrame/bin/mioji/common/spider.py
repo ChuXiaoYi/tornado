@@ -14,13 +14,13 @@ import types
 import uuid
 from collections import defaultdict
 
-from logger import logger
 
-from mioji.common.func_log import func_time_logger
 from mioji.common.pool import pool
+from mioji.common.logger import logger
 from mioji.common import parser_except
-from mioji.common.pool_event_lock import block_async
 from mioji.common.browser import MechanizeCrawler
+from mioji.common.func_log import func_time_logger
+from mioji.common.pool_event_lock import block_async
 from mioji.common.parser_except import ParserException
 from mioji.common.utils import current_log_tag, get_md5
 from mioji.common.request_parse import request, w_get_proxy

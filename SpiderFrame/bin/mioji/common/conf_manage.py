@@ -9,7 +9,7 @@ try:
 except:
     import configparser as ConfigParser
 
-os.environ["CONFIG_FILE"] = "../../../../conf/service.conf"
+os.environ["CONFIG_FILE"] = "../conf/service.conf"
 config_file_path = os.environ["CONFIG_FILE"]
 
 class ConfigHelper:

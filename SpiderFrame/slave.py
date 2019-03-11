@@ -9,16 +9,18 @@
 import json
 
 import tornado.web
-import tornado.options
 import tornado.httpserver
 import tornado.ioloop
 
 from tornado.options import define, options
 
+from celeryd import spider_crawl
 from mioji.common.task_info import Task
-from mioji.common.spider_factory import SpiderFactory
+
+
 
 define('port', default=8001, type=int, help="the ports of slave")
+
 
 class WebHandler(tornado.web.RequestHandler):
 
@@ -26,13 +28,10 @@ class WebHandler(tornado.web.RequestHandler):
         task_list = self.parse_task()
         for task in task_list:
             # todo 从spider_factory中取当前task对应的spider，进行爬取
-            pass
+            spider_crawl.delay(task.source)
 
         result = {'result': '0', 'task': []}
         self.write(result)
-
-
-
 
 
     def parse_task(self):
@@ -91,22 +90,22 @@ class WebHandler(tornado.web.RequestHandler):
                 yield task
 
 
-
-
-
-
-
-
-
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/rtquery', WebHandler)
         ]
         super(Application, self).__init__(handlers)
+        self.initialize()
 
-        self.spider_factory = SpiderFactory().load()
+    def initialize(self):
+        """
+        加载全局配置
+        :return:
+        """
+
         # todo 开启心跳
+        pass
 
 if __name__ == '__main__':
     app = Application()

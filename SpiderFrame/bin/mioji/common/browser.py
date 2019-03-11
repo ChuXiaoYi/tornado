@@ -15,7 +15,7 @@ import requests
 import traceback
 import json as _json
 
-from logger import logger
+from mioji.common.logger import logger
 from mioji.common.utils import current_log_tag
 from mioji.common.func_log import func_time_logger
 

@@ -7,11 +7,11 @@ Created on 2017年1月6日
 @author: dujun
 '''
 import functools
-from logger import logger
 from datetime import datetime
 from collections import defaultdict
 # import mioji.common.pool
 
+from mioji.common.logger import logger
 from mioji.common.utils import current_log_tag
 
 func_count_dict = defaultdict(int)
